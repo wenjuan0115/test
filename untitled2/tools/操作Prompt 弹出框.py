@@ -1,0 +1,21 @@
+from selenium import webdriver
+import time
+
+driver=webdriver.Chrome("../tools/chromedriver.exe")
+driver.maximize_window()
+driver.get("file:///G:/Google%20Chrome/selenium_pages-master/alert.html")
+time.sleep(3)
+driver.find_element_by_id('b3').click()
+print("Prompt按钮点击成功....")
+print(driver.switch_to.alert.text)
+print("正在输入想要学习的课程....")
+driver.switch_to.alert.send_keys('selenium——自动化测试')
+driver.switch_to.alert.accept()
+print("点击了确定按钮....")
+time.sleep(3)
+driver.find_element_by_id('b3').click()
+print("再次点击Prompt按钮成功....")
+driver.switch_to.alert.dismiss()
+print("点击了取消按钮....")
+time.sleep(2)
+driver.close()
